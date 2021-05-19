@@ -1,0 +1,7 @@
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\bin\Debug\PlutoServerClient.exe.config
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\bin\Debug\PlutoServerClient.exe
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\bin\Debug\PlutoServerClient.pdb
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.csprojAssemblyReference.cache
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.csproj.CoreCompileInputs.cache
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.exe
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.pdb

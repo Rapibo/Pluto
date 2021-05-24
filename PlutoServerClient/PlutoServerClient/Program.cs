@@ -18,45 +18,98 @@ namespace PlutoServerClient
             Console.WriteLine("Server started {0}{1}", DateTime.Now.ToString("dd MMM HH:mm:ss"), Environment.NewLine);
             var client = server.AcceptTcpClient();
 
-            Console.WriteLine("A client connected.");
+            Console.WriteLine("{0} A client connected.", DateTime.Now.ToString("dd MMM HH:mm:ss"));
             var stream = client.GetStream();
+
             
-            if (!client.Client.Poll(0, SelectMode.SelectRead))
+
+            //if (client.Client.Poll(0, SelectMode.SelectRead))
+            //{
+            //while (true)
+            //{
+            //var bytes = new byte[client.Available];
+
+            //stream.Read(bytes, 0, bytes.Length);
+
+            //var data = Encoding.UTF8.GetString(bytes);
+
+
+            //if (data != "")
+            //{
+            //    if (Regex.IsMatch(data, "^GET", RegexOptions.IgnoreCase))
+            //    {
+            //        Console.WriteLine("=====Handshaking from client=====\n{0}", data);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("{0} {1}", DateTime.Now.ToString("HH:mm:ss"), data);
+            //    }
+            //}
+
+
+            //}
+
+            //var buff = new byte[1];
+            //if (client.Client.Receive(buff, SocketFlags.Peek) == 0)
+            //{
+            //    if (client.Connected)
+            //    {
+            //        stream = client.GetStream();
+            //    }
+            //    // Client disconnected
+
+            //}
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("{0} {1}", DateTime.Now.ToString("HH:mm:ss"), "DISCONNECTED");
+            //}
+            while (client.Connected)
             {
-                while (true)
+                if (client.Available > 0)
                 {
-                    var bytes = new byte[client.Available];
+                    Console.WriteLine("{0} Antal anslutna: {1}", DateTime.Now.ToString("HH:mm:ss"), client.Available);
+                }
+                else
+                {
+                    Console.WriteLine("{0} Inga anslutna", DateTime.Now.ToString("HH:mm:ss"));
+                }
 
-                    stream.Read(bytes, 0, bytes.Length);
+            }
+            
+            
 
-                    var data = Encoding.UTF8.GetString(bytes);
+        }
 
-
-                    if (data != "")
+        static bool IsConnected(Socket _nSocket)
+        {
+            if (_nSocket.Connected)
+            {
+                if ((_nSocket.Poll(0, SelectMode.SelectWrite)) && (!_nSocket.Poll(0, SelectMode.SelectError)))
+                {
+                    byte[] buffer = new byte[1];
+                    if (_nSocket.Receive(buffer, SocketFlags.Peek) == 0)
                     {
-                        if (Regex.IsMatch(data, "^GET", RegexOptions.IgnoreCase))
-                        {
-                            Console.WriteLine("=====Handshaking from client=====\n{0}", data);
-                        }
-                        else
-                        {
-                            Console.WriteLine("{0} {1}", DateTime.Now.ToString("HH:mm:ss"), data);
-                        }
+                        return false;
                     }
-                    
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
                 }
             }
             else
             {
-                Console.WriteLine("{0} {1}", DateTime.Now.ToString("HH:mm:ss"), "DISCONNECTED");
+                return false;
             }
-            
-
-
-
         }
 
-        
+
     }
 
     static class SocketExtensions

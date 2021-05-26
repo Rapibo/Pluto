@@ -5,3 +5,5 @@ D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.
 D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.csproj.CoreCompileInputs.cache
 D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.exe
 D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.pdb
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\bin\Debug\SimpleTCP.dll
+D:\GitHub\Pluto\PlutoServerClient\PlutoServerClient\obj\Debug\PlutoServerClient.csproj.CopyComplete
